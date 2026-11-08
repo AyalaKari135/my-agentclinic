@@ -22,6 +22,9 @@ Get a running Hono web server written in TypeScript, with one route and a minima
 - Module system switches to ES modules (`"type": "module"`), which Hono and `tsx` expect.
 - The Hono app is created in `src/app.tsx` and started in `src/index.tsx`, so the app can be used without starting a server (useful for tests later).
 
+- The page layout is a `Layout` component made of three subcomponents — `Header`, `Main` and `Footer` — and **each one lives in its own file** under `src/components/` (`Header.tsx`, `Main.tsx`, `Footer.tsx`, `Layout.tsx`).
+- Styles live in `static/style.css`, served by Hono's `serveStatic` and linked from `Layout`.
+
 ## Context
 
 See `specs/mission.md` and `specs/tech-stack.md`.
