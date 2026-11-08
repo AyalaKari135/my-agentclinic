@@ -6,6 +6,7 @@ export function Header() {
         <a href="/">Home</a>
         <a href="/agents">Agents</a>
         <a href="/ailments">Ailments</a>
+        <a href="/therapies">Therapies</a>
       </nav>
     </header>
   )
