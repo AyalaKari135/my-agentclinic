@@ -203,3 +203,42 @@ td {
 .notes {
   white-space: pre-line;
 }
+
+.stats {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: var(--space);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space);
+  background: var(--color-brand-black);
+  color: #ffffff;
+  border-top: 4px solid var(--color-brand-orange);
+  border-radius: 4px;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-brand-orange);
+}
+
+.inline-form {
+  display: inline;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.button-small {
+  padding: 0.2rem 0.75rem;
+  font-size: 0.9rem;
+}

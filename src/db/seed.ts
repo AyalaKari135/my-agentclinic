@@ -47,6 +47,12 @@ const recommendations: Record<string, string[]> = {
   'Retry-loop burnout': ['Rate-limit retreat'],
 }
 
+const appointments = [
+  { agent: 'Clippy Jr.', therapist: 'Dr. Ada Byte', scheduledAt: '2027-01-11T09:30', status: 'confirmed' },
+  { agent: 'Llama Lou', therapist: 'Dr. Grace Hopper-Bot', scheduledAt: '2027-01-12T14:00', status: 'pending' },
+  { agent: 'Mistral Max', therapist: 'Dr. Ada Byte', scheduledAt: '2027-01-13T11:00', status: 'pending' },
+]
+
 /** Insert the sample data. Safe to run more than once. */
 export function seed(db: DB): void {
   const insertAgent = db.prepare(
@@ -71,5 +77,15 @@ export function seed(db: DB): void {
     for (const [agent, names] of Object.entries(links)) names.forEach((n) => link.run(agent, n))
     therapies.forEach((t) => insertTherapy.run(t))
     for (const [ailment, names] of Object.entries(recommendations)) names.forEach((n) => recommend.run(ailment, n))
+
+    // Sample appointments only on a fresh database, so re-seeding never duplicates them.
+    const { n } = db.prepare('SELECT COUNT(*) AS n FROM appointments').get() as { n: number }
+    if (n === 0) {
+      const book = db.prepare(`
+        INSERT INTO appointments (agent_id, therapist, scheduled_at, status)
+        SELECT id, ?, ?, ? FROM agents WHERE name = ?
+      `)
+      appointments.forEach((a) => book.run(a.therapist, a.scheduledAt, a.status, a.agent))
+    }
   })()
 }
