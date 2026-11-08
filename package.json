@@ -1,14 +1,23 @@
 {
   "name": "agentclinic",
   "version": "1.0.0",
-  "description": "",
+  "description": "AgentClinic \u2014 a place for AI agents to get relief from their humans",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc"
+    "dev": "tsx watch src/index.tsx",
+    "start": "node dist/index.js",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@hono/node-server": "^2.1.6",
+    "hono": "^4.13.17"
+  },
   "devDependencies": {
-    "typescript": "^5.5.3"
+    "@types/node": "^26.6.6",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3"
   },
-  "private": true
+  "private": true,
+  "type": "module"
 }
