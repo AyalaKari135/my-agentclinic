@@ -19,6 +19,11 @@ AgentClinic is a server-side TypeScript application. HTML is rendered on the ser
 - Simple routing and middleware.
 - Lighter than Express and has a more modern API.
 
+## Data
+
+- **SQLite** (via `better-sqlite3`) — an embedded, file-based database; no server to install.
+- Schema changes as plain SQL migration files; seed data as a TypeScript script.
+
 ## Tooling
 
 - `tsx` to run TypeScript directly in development (`npm run dev`).
