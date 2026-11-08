@@ -9,7 +9,7 @@ Each phase is a focused, shippable slice of work that can be reviewed and valida
 - `/` route that answers "AgentClinic is open for business"
 - TypeScript type check passes
 
-## Phase 2 — Agents & Ailments
+## Phase 2 — Agents & Ailments ✅
 - Shared JSX layout (header, main, footer) and basic CSS — all pages render inside the layout (started in Phase 1)
 - Responsive: every new page is checked on mobile and desktop widths
 - SQLite database with SQL migrations; `agents` table and seed data

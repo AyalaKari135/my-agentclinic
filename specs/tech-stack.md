@@ -20,6 +20,10 @@ AgentClinic is a server-side TypeScript application. HTML is rendered on the ser
 - Simple routing and middleware.
 - Lighter than Express and has a more modern API.
 
+## Brand
+
+- Brand colors are **orange and black**, defined once as CSS custom properties in `static/style.css`.
+
 ## Responsive Design Rules
 
 - Mobile-first: base styles target small screens; `@media (min-width: …)` adds wider layouts.
