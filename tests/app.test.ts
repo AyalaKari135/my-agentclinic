@@ -21,6 +21,7 @@ describe('GET /', () => {
     expect(html).toContain('<main')
     expect(html).toContain('<footer')
     expect(html).toContain('href="/static/style.css"')
+    expect(html).toContain('name="viewport"')
   })
 })
 

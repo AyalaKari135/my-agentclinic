@@ -12,9 +12,11 @@ The phase can be merged when all of these are true:
 - [x] `GET /static/style.css` returns 200 with `text/css`.
 - [x] No leftover `src/index.ts`.
 
+- [x] The page includes a viewport meta tag and the layout is usable at 360px wide and at desktop width.
+
 ## Automated tests
 
 These checks are covered by Vitest (`npm test`):
 
-- `tests/app.test.ts` — `GET /` status, content type, message, layout landmarks; stylesheet served.
+- `tests/app.test.ts` — `GET /` status, content type, message, layout landmarks, viewport meta tag; stylesheet served.
 - `tests/components.test.tsx` — `Header`, `Main` and `Footer` render as expected.
