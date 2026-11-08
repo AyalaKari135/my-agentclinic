@@ -8,7 +8,7 @@ export const dashboardRoute = new Hono()
 
 dashboardRoute.get('/', (c) =>
   c.html(
-    <Layout title="Dashboard">
+    <Layout title="Dashboard" section="/dashboard">
       <Dashboard counts={getDashboardCounts()} appointments={listAppointments()} />
     </Layout>,
   ),

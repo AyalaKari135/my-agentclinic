@@ -7,7 +7,7 @@ export const ailmentsRoute = new Hono()
 
 ailmentsRoute.get('/', (c) =>
   c.html(
-    <Layout title="Ailments">
+    <Layout title="Ailments" section="/ailments">
       <AilmentsList ailments={listAilmentsWithCounts()} />
     </Layout>,
   ),

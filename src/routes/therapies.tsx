@@ -7,7 +7,7 @@ export const therapiesRoute = new Hono()
 
 therapiesRoute.get('/', (c) =>
   c.html(
-    <Layout title="Therapies">
+    <Layout title="Therapies" section="/therapies">
       <TherapiesList therapies={listTherapiesWithAilments()} />
     </Layout>,
   ),

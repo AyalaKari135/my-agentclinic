@@ -6,10 +6,12 @@ import { Footer } from './Footer.js'
 
 type LayoutProps = {
   title: string
+  /** Current nav section, e.g. `/agents`. */
+  section?: string
   children: Child
 }
 
-export function Layout({ title, children }: LayoutProps) {
+export function Layout({ title, section, children }: LayoutProps) {
   return (
     <>
       {raw('<!doctype html>')}
@@ -21,7 +23,10 @@ export function Layout({ title, children }: LayoutProps) {
           <link rel="stylesheet" href="/static/style.css" />
         </head>
         <body>
-          <Header />
+          <a class="skip-link" href="#content">
+            Skip to content
+          </a>
+          <Header section={section} />
           <Main>{children}</Main>
           <Footer />
         </body>

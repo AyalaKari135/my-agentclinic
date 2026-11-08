@@ -14,7 +14,7 @@ appointmentsRoute.get('/:id{[0-9]+}', (c) => {
   if (!appointment) return c.html(<NotFound />, 404)
 
   return c.html(
-    <Layout title="Appointment booked">
+    <Layout title="Appointment booked" section="/dashboard">
       <AppointmentConfirmation appointment={appointment} />
     </Layout>,
   )

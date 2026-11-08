@@ -242,3 +242,44 @@ td {
   padding: 0.2rem 0.75rem;
   font-size: 0.9rem;
 }
+
+.skip-link {
+  position: absolute;
+  left: var(--space);
+  top: -3rem;
+  z-index: 10;
+  padding: 0.5rem 1rem;
+  background: var(--color-brand-orange);
+  color: var(--color-brand-black);
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  top: var(--space);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-brand-orange);
+  outline-offset: 2px;
+}
+
+.site-header :focus-visible {
+  outline-color: #ffffff;
+}
+
+.site-main:focus {
+  outline: none;
+}
+
+.site-header nav a[aria-current="page"] {
+  color: var(--color-brand-orange);
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

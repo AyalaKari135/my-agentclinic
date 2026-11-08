@@ -26,7 +26,7 @@ function AgentPage({ agent, values, errors }: AgentPageProps) {
   const ailments = getAgentAilments(agent.id)
   const therapies = getRecommendedTherapies(ailments.map((a) => a.id))
   return (
-    <Layout title={agent.name}>
+    <Layout title={agent.name} section="/agents">
       <AgentDetail agent={agent} ailments={ailments} therapies={therapies} />
       <AppointmentForm agentId={agent.id} values={values} errors={errors} />
     </Layout>
@@ -35,7 +35,7 @@ function AgentPage({ agent, values, errors }: AgentPageProps) {
 
 agentsRoute.get('/', (c) =>
   c.html(
-    <Layout title="Agents">
+    <Layout title="Agents" section="/agents">
       <AgentsList agents={listAgents()} />
     </Layout>,
   ),
