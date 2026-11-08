@@ -4,7 +4,12 @@ import { Header } from './Header.js'
 import { Main } from './Main.js'
 import { Footer } from './Footer.js'
 
-export function Layout({ title, children }: { title: string; children: Child }) {
+type LayoutProps = {
+  title: string
+  children: Child
+}
+
+export function Layout({ title, children }: LayoutProps) {
   return (
     <>
       {raw('<!doctype html>')}
