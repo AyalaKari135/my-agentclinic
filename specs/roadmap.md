@@ -18,24 +18,24 @@ Each phase is a focused, shippable slice of work that can be reviewed and valida
 - `ailments` table + seed data, linked to agents (many-to-many)
 - `/ailments` page
 
-## Phase 3 — Therapies Catalog
+## Phase 3 — Therapies Catalog ✅
 - `therapies` table + seed data
 - Recommended therapies for each ailment
 - `/therapies` page
 
-## Phase 4 — Appointment Booking
+## Phase 4 — Appointment Booking ✅
 - `appointments` table (agent, therapist, date-time, status)
 - Booking form on the agent detail page
 - Validation and a confirmation page
 
-## Phase 5 — Staff Dashboard
+## Phase 5 — Staff Dashboard ✅
 - `/dashboard` with counts (agents, open appointments, active ailments)
 - Tables of recent appointments
 
-## Phase 6 — Polish & Accessibility
+## Phase 6 — Polish & Accessibility ✅
 - Semantic HTML, keyboard navigation, visible focus styles
 
-## Phase 7 — Hardening
+## Phase 7 — Hardening ✅
 - 404 and 500 pages
 - Input sanitization on forms
 - Request logging middleware

@@ -1,6 +1,13 @@
 # Changelog
 
 ## 2026-11-08
+- MVP (Phases 3-7) complete:
+  - Therapies catalog with recommended therapies on ailment and agent pages
+  - Appointment booking from the agent page, with server-side validation and a confirmation page
+  - Staff dashboard with counts and confirm/cancel actions
+  - Skip link, current-page navigation, visible focus styles
+  - 500 error page and request logging
+- Documented open questions found while building the MVP in the MVP spec
 - Phase 2 — Agents & Ailments: SQLite database with migrations and seed data; `/agents`, `/agents/:id` and `/ailments` pages
 - Orange and black brand colors; header navigation for Agents and Ailments
 - Branded 404 page for unknown URLs and invalid agent ids
