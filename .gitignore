@@ -8,4 +8,7 @@ yarn-error.log*
 /.pnp
 .pnp.js
 
-.vscode/*/dist
+.vscode/*
+
+/dist
+/data
