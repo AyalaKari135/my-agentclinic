@@ -47,6 +47,17 @@ Finish every remaining roadmap phase so AgentClinic is a complete, demo-ready ap
 - Editing or deleting agents, therapies or ailments.
 - Email notifications, therapist profiles, reports.
 
+## Clarifications found while building the MVP
+
+Questions the specs did not answer, with the choice made for now:
+
+1. **Time zone of appointments** — `scheduled_at` is stored as local time without a zone (`YYYY-MM-DDTHH:MM`), and "in the future" is checked against the server clock. Fine for a single-clinic demo; needs a decision before multiple time zones.
+2. **What counts as an "open" appointment** — `pending` + `confirmed`, including ones whose time has already passed. A later phase could add a `completed` status.
+3. **Agent status vs. appointments** — booking does not change an agent's status (e.g. to `in-treatment`). Status is seed data only; staff cannot edit it yet.
+4. **Therapist** — free text, so the same therapist can be typed two ways ("Dr. Byte" / "dr byte"). A `therapists` table (already in "later phases") would fix this.
+5. **Dashboard access** — anyone can open `/dashboard` and change appointment statuses. Acceptable for a demo; authentication is listed under later phases.
+6. **Seed appointments** use fixed dates in January 2027; after that date they will appear in the past.
+
 ## Context
 
 `specs/mission.md`, `specs/tech-stack.md`, `specs/2026-11-08-agents-ailments/`.
