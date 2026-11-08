@@ -7,4 +7,6 @@ The phase can be merged when all of these are true:
 - [ ] `npm run dev` starts a server on http://localhost:3000.
 - [ ] `GET /` returns status 200 with `Content-Type: text/html`.
 - [ ] The response body contains "AgentClinic is open for business" inside an `<h1>` or `<p>` of a full HTML page with `<title>AgentClinic</title>`.
+- [ ] The page has `<header>`, `<main>` and `<footer>` elements and links `/static/style.css`.
+- [ ] `GET /static/style.css` returns 200 with `text/css`.
 - [ ] No leftover `src/index.ts`.

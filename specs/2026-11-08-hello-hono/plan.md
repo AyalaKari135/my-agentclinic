@@ -16,6 +16,12 @@
 3.1 Create `src/pages/Home.tsx`, a JSX component with a full HTML document: title "AgentClinic", an `<h1>`, and the "open for business" message.
 3.2 `GET /` renders `Home`.
 
-## 4. Verify
-4.1 Run `npm run typecheck`.
-4.2 Run `npm run dev` and open http://localhost:3000.
+## 4. Main layout
+4.1 Create a `Layout` component that renders the full HTML document (doctype, head, body).
+4.2 `Layout` is built from three subcomponents: `Header`, `Main`, `Footer`.
+4.3 Create `static/style.css`, serve `/static/*` with Hono's `serveStatic`, and link it from `Layout`.
+4.4 `Home` renders inside `Layout`.
+
+## 5. Verify
+5.1 Run `npm run typecheck`.
+5.2 Run `npm run dev` and open http://localhost:3000.

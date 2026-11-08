@@ -1,15 +1,10 @@
+import { Layout } from '../components/Layout.js'
+
 export function Home() {
   return (
-    <html lang="en">
-      <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>AgentClinic</title>
-      </head>
-      <body>
-        <h1>AgentClinic</h1>
-        <p>AgentClinic is open for business</p>
-      </body>
-    </html>
+    <Layout title="AgentClinic">
+      <h1>AgentClinic</h1>
+      <p>AgentClinic is open for business</p>
+    </Layout>
   )
 }
