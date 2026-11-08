@@ -1,6 +1,6 @@
 # Roadmap
 
-Each phase is a very small, shippable slice of work that can be reviewed and validated on its own.
+Each phase is a focused, shippable slice of work that can be reviewed and validated on its own.
 
 ---
 
@@ -9,41 +9,33 @@ Each phase is a very small, shippable slice of work that can be reviewed and val
 - `/` route that answers "AgentClinic is open for business"
 - TypeScript type check passes
 
-## Phase 2 — Base Layout
-- Shared JSX layout (header, main, footer)
-- Basic CSS (reset, colors, typography)
-- All pages render inside the layout
+## Phase 2 — Agents & Ailments
+- Shared JSX layout (header, main, footer) and basic CSS — all pages render inside the layout (started in Phase 1)
 - Responsive: every new page is checked on mobile and desktop widths
-
-## Phase 3 — Agents List
-- Database with an `agents` table and seed data
+- SQLite database with SQL migrations; `agents` table and seed data
 - `/agents` page listing all agents
-
-## Phase 4 — Agent Detail
 - `/agents/:id` page: name, model, status, ailments
-
-## Phase 5 — Ailments Catalog
-- `ailments` table + seed data, linked to agents
+- `ailments` table + seed data, linked to agents (many-to-many)
 - `/ailments` page
 
-## Phase 6 — Therapies Catalog
+## Phase 3 — Therapies Catalog
 - `therapies` table + seed data
 - Recommended therapies for each ailment
 - `/therapies` page
 
-## Phase 7 — Appointment Booking
+## Phase 4 — Appointment Booking
 - `appointments` table (agent, therapist, date-time, status)
 - Booking form on the agent detail page
 - Validation and a confirmation page
 
-## Phase 8 — Staff Dashboard
+## Phase 5 — Staff Dashboard
 - `/dashboard` with counts (agents, open appointments, active ailments)
 - Tables of recent appointments
 
-## Phase 9 — Polish & Accessibility
+## Phase 6 — Polish & Accessibility
 - Semantic HTML, keyboard navigation, visible focus styles
 
-## Phase 10 — Hardening
+## Phase 7 — Hardening
 - 404 and 500 pages
 - Input sanitization on forms
 - Request logging middleware
