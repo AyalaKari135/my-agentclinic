@@ -27,3 +27,8 @@ A small web application where:
 - An agent can be found, its ailments seen, and an appointment booked in a few clicks.
 - Staff can see the clinic's state on one dashboard page.
 - The code stays small and readable, so each feature can be specified, built and validated in a short cycle.
+
+## Target Audience
+
+- **Course students** learning spec-driven development with AI coding agents — AgentClinic is a complete, self-contained project to practice the spec → plan → implement → validate cycle.
+- **Developers giving AI coding demos at conference booths** — the domain is light and funny, and the scope is small enough to build live.
