@@ -1,9 +1,12 @@
 :root {
+  /* Brand: orange and black */
+  --color-brand-orange: #f26b1d;
+  --color-brand-black: #111111;
   --color-bg: #ffffff;
-  --color-text: #1f2328;
-  --color-muted: #59636e;
-  --color-accent: #2f6f6a;
-  --color-border: #d1d9e0;
+  --color-text: var(--color-brand-black);
+  --color-muted: #555555;
+  --color-accent: #c2500f; /* darker orange: readable on white */
+  --color-border: #e5e5e5;
   --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --space: 1rem;
   --max-width: 60rem;
@@ -43,7 +46,19 @@ a {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  border-bottom: 1px solid var(--color-border);
+  max-width: none;
+  padding-inline: max(var(--space), calc((100% - var(--max-width)) / 2 + var(--space)));
+  background: var(--color-brand-black);
+  border-bottom: 4px solid var(--color-brand-orange);
+}
+
+.site-header a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.site-header a:hover {
+  color: var(--color-brand-orange);
 }
 
 .site-header nav {
@@ -69,10 +84,20 @@ img {
   }
 }
 
-.brand {
+.site-header .brand {
   font-weight: 700;
   font-size: 1.25rem;
-  text-decoration: none;
+  color: var(--color-brand-orange);
+}
+
+h1 {
+  border-left: 6px solid var(--color-brand-orange);
+  padding-left: 0.6rem;
+}
+
+th {
+  background: var(--color-brand-black);
+  color: #ffffff;
 }
 
 .site-main {
@@ -113,4 +138,16 @@ td {
   font-size: 0.85rem;
   border: 1px solid currentColor;
   white-space: nowrap;
+}
+
+.badge-active {
+  color: var(--color-brand-black);
+}
+
+.badge-in-treatment {
+  color: var(--color-accent);
+}
+
+.badge-recovered {
+  color: #2e7d32;
 }
