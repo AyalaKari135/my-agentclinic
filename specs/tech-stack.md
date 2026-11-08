@@ -24,6 +24,12 @@ AgentClinic is a server-side TypeScript application. HTML is rendered on the ser
 - **SQLite** (via `better-sqlite3`) — an embedded, file-based database; no server to install.
 - Schema changes as plain SQL migration files; seed data as a TypeScript script.
 
+## Testing
+
+- **Vitest** is used for validation: every feature's `validation.md` lists checks that are backed by automated tests.
+- Tests live in `tests/` and call the Hono app in-process with `app.request()` — no running server needed.
+- Run with `npm test` (`vitest run`); `npm run test:watch` for watch mode.
+
 ## Tooling
 
 - `tsx` to run TypeScript directly in development (`npm run dev`).
