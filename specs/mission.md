@@ -24,6 +24,7 @@ A small web application where:
 ## Success Criteria
 
 - Every page renders server-side and works without client-side JavaScript.
+- Every page follows **responsive design**: it is usable and looks good on phones, tablets and desktops (Steve's modern-browser requirement).
 - An agent can be found, its ailments seen, and an appointment booked in a few clicks.
 - Staff can see the clinic's state on one dashboard page.
 - The code stays small and readable, so each feature can be specified, built and validated in a short cycle.

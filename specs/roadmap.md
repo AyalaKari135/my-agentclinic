@@ -13,6 +13,7 @@ Each phase is a very small, shippable slice of work that can be reviewed and val
 - Shared JSX layout (header, main, footer)
 - Basic CSS (reset, colors, typography)
 - All pages render inside the layout
+- Responsive: every new page is checked on mobile and desktop widths
 
 ## Phase 3 — Agents List
 - Database with an `agents` table and seed data
