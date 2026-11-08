@@ -31,7 +31,7 @@ describe('GET /agents/:id', () => {
     expect(html).toContain('Prompt fatigue')
   })
 
-  it.each(['999', 'abc'])('returns 404 for /agents/%s', async (id) => {
+  it.each(['999', 'abc', '1e0', '%201', '1.0'])('returns 404 for /agents/%s', async (id) => {
     const res = await app.request(`/agents/${id}`)
     expect(res.status).toBe(404)
     expect(await res.text()).toContain('Page not found')
@@ -45,6 +45,14 @@ describe('GET /ailments', () => {
     const html = await res.text()
     expect(html).toContain('Context-window claustrophobia')
     expect(html).toContain('Retry-loop burnout')
+  })
+})
+
+describe('unknown routes', () => {
+  it('render the branded 404 page', async () => {
+    const res = await app.request('/no-such-page')
+    expect(res.status).toBe(404)
+    expect(await res.text()).toContain('Page not found')
   })
 })
 
