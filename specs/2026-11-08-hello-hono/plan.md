@@ -23,5 +23,5 @@
 4.4 `Home` renders inside `Layout`.
 
 ## 5. Verify
-5.1 Run `npm run typecheck`.
+5.1 Run `npm run typecheck` and `npm test`.
 5.2 Run `npm run dev` and open http://localhost:3000.

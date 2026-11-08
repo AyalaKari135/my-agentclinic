@@ -11,3 +11,10 @@ The phase can be merged when all of these are true:
 - [x] The page has `<header>`, `<main>` and `<footer>` elements and links `/static/style.css`.
 - [x] `GET /static/style.css` returns 200 with `text/css`.
 - [x] No leftover `src/index.ts`.
+
+## Automated tests
+
+These checks are covered by Vitest (`npm test`):
+
+- `tests/app.test.ts` — `GET /` status, content type, message, layout landmarks; stylesheet served.
+- `tests/components.test.tsx` — `Header`, `Main` and `Footer` render as expected.
