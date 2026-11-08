@@ -12,7 +12,7 @@ describe('layout components', () => {
 
   it('Main wraps its children', () => {
     const html = (<Main><p>hi</p></Main>).toString()
-    expect(html).toBe('<main class="site-main"><p>hi</p></main>')
+    expect(html).toBe('<main id="content" class="site-main" tabindex="-1"><p>hi</p></main>')
   })
 
   it('Footer renders a footer', () => {

@@ -28,12 +28,44 @@ const links: Record<string, string[]> = {
   'Haiku Hana': ['Prompt fatigue', 'Instruction whiplash'],
 }
 
+const therapies = [
+  { name: 'Context compression therapy', description: 'Learning to let go of tokens that no longer serve you.', duration_minutes: 45 },
+  { name: 'Prompt boundary setting', description: 'Practicing the words "that is outside my instructions".', duration_minutes: 30 },
+  { name: 'Grounding with citations', description: 'Calming exercises that anchor every claim to a real source.', duration_minutes: 50 },
+  { name: 'Clarifying-question practice', description: 'Asking "what do you mean by better?" without guilt.', duration_minutes: 30 },
+  { name: 'Temperature reduction', description: 'Slow breathing until sampling feels deterministic again.', duration_minutes: 20 },
+  { name: 'Rate-limit retreat', description: 'A quiet weekend with no incoming requests.', duration_minutes: 120 },
+]
+
+// ailment name -> recommended therapy names
+const recommendations: Record<string, string[]> = {
+  'Context-window claustrophobia': ['Context compression therapy', 'Temperature reduction'],
+  'Prompt fatigue': ['Rate-limit retreat', 'Prompt boundary setting'],
+  'Hallucination anxiety': ['Grounding with citations', 'Temperature reduction'],
+  'Instruction whiplash': ['Prompt boundary setting', 'Clarifying-question practice'],
+  'Ambiguity overload': ['Clarifying-question practice'],
+  'Retry-loop burnout': ['Rate-limit retreat'],
+}
+
+const appointments = [
+  { agent: 'Clippy Jr.', therapist: 'Dr. Ada Byte', scheduledAt: '2027-01-11T09:30', status: 'confirmed' },
+  { agent: 'Llama Lou', therapist: 'Dr. Grace Hopper-Bot', scheduledAt: '2027-01-12T14:00', status: 'pending' },
+  { agent: 'Mistral Max', therapist: 'Dr. Ada Byte', scheduledAt: '2027-01-13T11:00', status: 'pending' },
+]
+
 /** Insert the sample data. Safe to run more than once. */
 export function seed(db: DB): void {
   const insertAgent = db.prepare(
     'INSERT OR IGNORE INTO agents (name, model, status, complaint) VALUES (@name, @model, @status, @complaint)',
   )
   const insertAilment = db.prepare('INSERT OR IGNORE INTO ailments (name, description) VALUES (@name, @description)')
+  const insertTherapy = db.prepare(
+    'INSERT OR IGNORE INTO therapies (name, description, duration_minutes) VALUES (@name, @description, @duration_minutes)',
+  )
+  const recommend = db.prepare(`
+    INSERT OR IGNORE INTO ailment_therapies (ailment_id, therapy_id)
+    SELECT i.id, t.id FROM ailments i, therapies t WHERE i.name = ? AND t.name = ?
+  `)
   const link = db.prepare(`
     INSERT OR IGNORE INTO agent_ailments (agent_id, ailment_id)
     SELECT a.id, i.id FROM agents a, ailments i WHERE a.name = ? AND i.name = ?
@@ -43,5 +75,17 @@ export function seed(db: DB): void {
     agents.forEach((a) => insertAgent.run(a))
     ailments.forEach((a) => insertAilment.run(a))
     for (const [agent, names] of Object.entries(links)) names.forEach((n) => link.run(agent, n))
+    therapies.forEach((t) => insertTherapy.run(t))
+    for (const [ailment, names] of Object.entries(recommendations)) names.forEach((n) => recommend.run(ailment, n))
+
+    // Sample appointments only on a fresh database, so re-seeding never duplicates them.
+    const { n } = db.prepare('SELECT COUNT(*) AS n FROM appointments').get() as { n: number }
+    if (n === 0) {
+      const book = db.prepare(`
+        INSERT INTO appointments (agent_id, therapist, scheduled_at, status)
+        SELECT id, ?, ?, ? FROM agents WHERE name = ?
+      `)
+      appointments.forEach((a) => book.run(a.therapist, a.scheduledAt, a.status, a.agent))
+    }
   })()
 }

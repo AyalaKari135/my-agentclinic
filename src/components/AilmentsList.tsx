@@ -1,7 +1,7 @@
-import type { AilmentWithCount } from '../db/types.js'
+import type { AilmentWithTherapies } from '../db/types.js'
 
 type AilmentsListProps = {
-  ailments: AilmentWithCount[]
+  ailments: AilmentWithTherapies[]
 }
 
 export function AilmentsList({ ailments }: AilmentsListProps) {
@@ -16,6 +16,7 @@ export function AilmentsList({ ailments }: AilmentsListProps) {
               <th scope="col">Ailment</th>
               <th scope="col">Description</th>
               <th scope="col">Agents</th>
+              <th scope="col">Recommended therapies</th>
             </tr>
           </thead>
           <tbody>
@@ -24,6 +25,7 @@ export function AilmentsList({ ailments }: AilmentsListProps) {
                 <td>{ailment.name}</td>
                 <td>{ailment.description}</td>
                 <td>{ailment.agentCount}</td>
+                <td>{ailment.therapies.join(', ') || '—'}</td>
               </tr>
             ))}
           </tbody>

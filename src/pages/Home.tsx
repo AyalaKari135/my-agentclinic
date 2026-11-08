@@ -2,7 +2,7 @@ import { Layout } from '../components/Layout.js'
 
 export function Home() {
   return (
-    <Layout title="AgentClinic">
+    <Layout title="AgentClinic" section="/">
       <h1>AgentClinic</h1>
       <p>AgentClinic is open for business</p>
     </Layout>

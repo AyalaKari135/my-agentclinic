@@ -1,12 +1,13 @@
-import type { Agent, Ailment } from '../db/types.js'
+import type { Agent, Ailment, Therapy } from '../db/types.js'
 import { StatusBadge } from './StatusBadge.js'
 
 type AgentDetailProps = {
   agent: Agent
   ailments: Ailment[]
+  therapies: Therapy[]
 }
 
-export function AgentDetail({ agent, ailments }: AgentDetailProps) {
+export function AgentDetail({ agent, ailments, therapies }: AgentDetailProps) {
   return (
     <article>
       <p>
@@ -31,6 +32,18 @@ export function AgentDetail({ agent, ailments }: AgentDetailProps) {
           {ailments.map((ailment) => (
             <li>
               <strong>{ailment.name}</strong> — {ailment.description}
+            </li>
+          ))}
+        </ul>
+      )}
+      <h2>Recommended therapies</h2>
+      {therapies.length === 0 ? (
+        <p>No therapies recommended yet.</p>
+      ) : (
+        <ul>
+          {therapies.map((therapy) => (
+            <li>
+              <strong>{therapy.name}</strong> ({therapy.duration_minutes} min) — {therapy.description}
             </li>
           ))}
         </ul>

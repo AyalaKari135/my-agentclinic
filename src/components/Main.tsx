@@ -5,5 +5,9 @@ type MainProps = {
 }
 
 export function Main({ children }: MainProps) {
-  return <main class="site-main">{children}</main>
+  return (
+    <main id="content" class="site-main" tabindex={-1}>
+      {children}
+    </main>
+  )
 }
