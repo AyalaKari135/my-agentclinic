@@ -4,7 +4,7 @@ Each phase is a very small, shippable slice of work that can be reviewed and val
 
 ---
 
-## Phase 1 — Hello Hono
+## Phase 1 — Hello Hono ✅
 - Install Hono and the `tsx` dev server
 - `/` route that answers "AgentClinic is open for business"
 - TypeScript type check passes
